@@ -14,7 +14,6 @@ spec:
         app: login-ui
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-login-demo:0.2
         name: login-ui
         ports:
         - containerPort: 80
