@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-ui
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: login-ui
+  template:
+    metadata:
+      labels:
+        app: login-ui
+    spec:
+      containers:
+      - image: gcr.io/heptio-images/ks-login-demo:0.2
+        name: login-ui
+        ports:
+        - containerPort: 80
