@@ -1,19 +1,36 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: login-ui
 spec:
-  replicas: 1
-  revisionHistoryLimit: 3
-  selector:
-    matchLabels:
-      app: login-ui
   template:
     metadata:
       labels:
         app: login-ui
     spec:
       containers:
-        name: login-ui
+      - name: login-ui
+        image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        env:
+        - name: REDISHOST
+          value: "redisapp:6379"
+        resources:
+          requests:
+            cpu: 25m
+            memory: 50Mi
+          limits:
+            cpu: 150m
+            memory: 150Mi
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+  selector:
+    matchLabels:
+      app: login-ui
+  replicas: 6
+  strategy:
+    canary:
+      steps:
+      - setWeight: 10
+      - pause: {}
+      - setWeight: 50
+      - pause: {}
