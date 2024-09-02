@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
       - name: login-ui
-        image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        image: gcr.io/heptio-images/ks-login-demo:0.1
         env:
         - name: REDISHOST
           value: "redisapp:6379"
