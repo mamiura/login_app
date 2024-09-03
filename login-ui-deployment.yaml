@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
       - name: login-ui
-        image: mabrmiura/nginxdemo:1.0
+        image: mabrmiura/login:1.0
         env:
         - name: REDISHOST
           value: "redisapp:6379"
