@@ -9,7 +9,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: build
-        run: docker-compose up -d
+        run: 
+          docker-compose up -d
           docker build . -t mabrmiura/login:latest
       - name: publish
         run: |
