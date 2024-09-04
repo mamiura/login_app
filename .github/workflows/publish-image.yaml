@@ -13,4 +13,5 @@ jobs:
           docker build . -t mabrmiura/login:latest
       - name: publish
         run: |
+          docker login -u mabrmiura -p ${{ secrets.DOCKER_HUB_SECRET }}
           docker push mabrmiura/login:latest
