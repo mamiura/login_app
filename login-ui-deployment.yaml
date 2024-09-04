@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
       - name: login-ui
-        image: mabrmiura/login:latest
+        image: mabrmiura/login:${{github.run_number}}
         env:
         - name: REDISHOST
           value: "redisapp:6379"
