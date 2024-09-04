@@ -10,8 +10,7 @@ jobs:
         uses: actions/checkout@v3
       - name: build
         run: |
-          brew install docker
-          colima start
+          docker-compose up -d
           docker build . -t mabrmiura/login:latest
       - name: publish
         run: |
