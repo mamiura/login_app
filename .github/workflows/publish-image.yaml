@@ -6,11 +6,11 @@ jobs:
   publish_image:
     runs-on: macos-latest
     steps:
-      -name: checkout
+      - name: checkout
         uses: actions/checkout@v3
-      -name: build
+      - name: build
         run: |
           docker build . -t mabrmiura/login:latest
-      -name: publish
+      - name: publish
         run: |
           docker push mabrmiura/login:latest
