@@ -11,7 +11,7 @@ jobs:
       - name: build
         run: |
           brew install docker
-          docker-compose up -d
+          colima start
           docker build . -t mabrmiura/login:latest
       - name: publish
         run: |
