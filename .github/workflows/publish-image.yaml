@@ -4,13 +4,12 @@ on:
 
 jobs:
   publish_image:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name: build
         run: |
-          brew install docker
           docker build . -t mabrmiura/login:latest
       - name: publish
         run: |
