@@ -34,3 +34,10 @@ spec:
       - pause: {}
       - setWeight: 50
       - pause: {}
+
+kind: Application
+metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.cd-visibility-trigger.cd-visibility-webhook: ""
+    dd_env: prod
+    dd_service: login-service
